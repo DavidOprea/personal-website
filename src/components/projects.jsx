@@ -14,8 +14,10 @@ function Projects() {
     We fix this by using ChatGPT to change the match text while keeping the core information. This removes pattern-recognition and forces users to learn the material thoroughly in order to beat the game as fast as possible.</h5>
                 </div>
                 <div class="project-image">
-                    <a class="project-link" href="https://github.com/DavidOprea/ReclairifAI" target="_blank">
-                        <img id="reclarifAI" src={reclarifAIPic}/>
+                    <a href="https://github.com/DavidOprea/ReclairifAI" target="_blank">
+                        <button class="project-button">
+                            Project's GitHub <i class="fa fa-github"></i>
+                        </button>
                     </a>
                 </div>
             </div>
@@ -25,8 +27,10 @@ function Projects() {
                     <h5 class="description-text">A comprehensive real-time social trading platform built with Next.js that enables users to trade stocks with live market data while connecting with other traders. The platform features portfolio management, social interactions like friend systems and community stock suggestions, and real-time updates through WebSocket connections. It uses modern technologies including TypeScript, Tailwind CSS, and Supabase for the backend, providing a full-stack trading experience with both financial and social capabilities.</h5>
                 </div>
                 <div class="project-image">
-                    <a class="project-link" href="https://github.com/monishmuralicharan/SocialStockExchange" target="_blank">
-                        <img id="socialStock" src={socialStockImage}/>
+                    <a href="https://github.com/monishmuralicharan/SocialStockExchange" target="_blank">
+                        <button class="project-button">
+                            Project's GitHub <i class="fa fa-github"></i>
+                        </button>
                     </a>
                 </div>
             </div>
@@ -36,8 +40,10 @@ function Projects() {
                     <h5 class="description-text">A cross-platform desktop application for analyzing seismic data, built with Electron.js and Python. It enables waveform plotting, seismic station aggregation, and earthquake catalog visualization while featuring session caching to save application state. The application uses Anaconda for Python data processing and will be packaged with PyInstaller for universal compatibility across Windows, macOS, and Linux systems.</h5>
                 </div>
                 <div class="project-image">
-                    <a class="project-link" href="https://github.com/Purdue-Stack/proj-seismic-data-visualization" target="_blank">
-                        GitHub Link (No Logo/Image Yet)
+                    <a href="https://github.com/Purdue-Stack/proj-seismic-data-visualization" target="_blank">
+                        <button class="project-button">
+                            Project's GitHub <i class="fa fa-github"></i>
+                        </button>
                     </a>
                 </div>
             </div>
@@ -47,8 +53,10 @@ function Projects() {
                     <h5 class="description-text">Developing a Reinforcement Learning agent for competitive Pokémon VGC using PyTorch. The agent utilizes a deep neural network policy to learn optimal decision-making directly from battle data, focusing on mastering team composition, dynamic move selection, and in-game prediction to achieve a high win rate against standard baseline models.</h5>
                 </div>
                 <div class="project-image">
-                    <a class="project-link" href="https://github.com/akkshay0107/vgc-rl" target="_blank">
-                        GitHub Link (No Logo/Image Yet)
+                    <a href="https://github.com/akkshay0107/vgc-rl" target="_blank">
+                        <button class="project-button">
+                            Project's GitHub <i class="fa fa-github"></i>
+                        </button>
                     </a>
                 </div>
             </div>
