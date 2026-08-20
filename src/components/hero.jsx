@@ -77,23 +77,6 @@ function Hero() {
             <span>rgb / natural</span>
           </div>
         </div>
-
-        <div className="terminal" aria-hidden="true">
-          <div className="terminal-bar">
-            <span className="traffic red" />
-            <span className="traffic yellow" />
-            <span className="traffic green" />
-            <span className="terminal-title">whoami — zsh</span>
-          </div>
-          <pre className="terminal-body">
-            <span className="prompt">{profile.handle}:~$</span> whoami{"\n"}
-            {profile.whoami}{"\n\n"}
-            <span className="prompt">{profile.handle}:~$</span> cat interests.txt{"\n"}
-            {profile.interests.join("\n")}{"\n\n"}
-            <span className="prompt">{profile.handle}:~$</span>
-            <span className="cursor" />
-          </pre>
-        </div>
       </MotionDiv>
     </section>
   );

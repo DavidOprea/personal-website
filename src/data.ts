@@ -56,7 +56,6 @@ export type FunFact = {
 
 export const profile = {
   name: "David Oprea",
-  handle: "david@purdue",
   role: "Computer Science student",
   school: "Purdue University",
   location: "West Lafayette, IN",
@@ -75,15 +74,6 @@ export const profile = {
     "training a model that actually converges",
     "debugging something that worked yesterday",
     "getting a project out of localhost",
-  ],
-  whoami: "David Oprea — computer science student @ Purdue",
-  interests: [
-    "full stack development",
-    "AI/ML",
-    "pickleball",
-    "rhythm games",
-    "data & docker",
-    "puzzles",
   ],
   portrait,
   resumeUrl: "/Resume.pdf",
