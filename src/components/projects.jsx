@@ -1,67 +1,71 @@
-import "./global.css";
-import reclarifAIPic from "../../src/assets/reclarifAI.jpg";
-import socialStockImage from "../../src/assets/stock.png";
+import { motion } from "framer-motion";
+import { projects } from "../data";
+import Section from "./section";
+import { IconGithub, IconExternal } from "./icons";
+
+const MotionArticle = motion.article;
 
 function Projects() {
-    return (
-        <div id = "projects-container">
-            <h2 class="header-text">Projects</h2>
-            <div class="project-container">
-                <div class="info">
-                    <h4 class="project-header">ReclarifAI</h4>
-                    <h5 class="description-text">ReclarifAI is a matching game for learning which changes the match definitions with AI, eliminating relying on pattern-recognition to beat the game.
-    Other match games like Quizlet match eventually devolve into using pattern-recognition, such as memorizing the shape of the text instead of the actual meaning/information inside the text. This makes the learning become incredibly inefficient.
-    We fix this by using ChatGPT to change the match text while keeping the core information. This removes pattern-recognition and forces users to learn the material thoroughly in order to beat the game as fast as possible.</h5>
-                </div>
-                <div class="project-image">
-                    <a href="https://github.com/DavidOprea/ReclairifAI" target="_blank">
-                        <button class="project-button">
-                            Project's GitHub <i class="fa fa-github"></i>
-                        </button>
-                    </a>
-                </div>
+  return (
+    <Section id="projects" index="03" kicker="projects" title="Things I have built (and shipped)">
+      <p className="section-copy">
+        From on-device vision in the weight room to multiplayer markets and seismic waveforms —
+        I like projects that have a real constraint, a real user, and a reason to exist.
+      </p>
+
+      <div className="project-grid">
+        {projects.map((project, index) => (
+          <MotionArticle
+            key={project.id}
+            className={`project-card ${project.featured ? "is-featured" : ""}`}
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.45, delay: index * 0.04 }}
+          >
+            {project.image ? (
+              <div className="project-media">
+                <img src={project.image} alt="" />
+              </div>
+            ) : (
+              <div className="project-media is-code" aria-hidden="true">
+                <span className="mono">{project.tags[0]}</span>
+                <span className="project-glyph">{project.name.slice(0, 2).toUpperCase()}</span>
+              </div>
+            )}
+
+            <div className="project-body">
+              <div className="project-topline">
+                <h3>{project.name}</h3>
+                {project.featured ? <span className="badge">featured</span> : null}
+              </div>
+              <p className="project-tagline">{project.tagline}</p>
+              <p className="project-desc">{project.description}</p>
+              <ul className="tag-row">
+                {project.tags.map((tag) => (
+                  <li key={tag}>{tag}</li>
+                ))}
+              </ul>
+              <div className="project-links">
+                {project.github ? (
+                  <a href={project.github} target="_blank" rel="noreferrer">
+                    <IconGithub className="icon" />
+                    source
+                  </a>
+                ) : null}
+                {project.demo ? (
+                  <a href={project.demo} target="_blank" rel="noreferrer">
+                    <IconExternal className="icon" />
+                    live
+                  </a>
+                ) : null}
+              </div>
             </div>
-            <div class="project-container">
-                <div class="info">
-                    <h4 class="project-header">Social Stock Exchange</h4>
-                    <h5 class="description-text">A comprehensive real-time social trading platform built with Next.js that enables users to trade stocks with live market data while connecting with other traders. The platform features portfolio management, social interactions like friend systems and community stock suggestions, and real-time updates through WebSocket connections. It uses modern technologies including TypeScript, Tailwind CSS, and Supabase for the backend, providing a full-stack trading experience with both financial and social capabilities.</h5>
-                </div>
-                <div class="project-image">
-                    <a href="https://github.com/monishmuralicharan/SocialStockExchange" target="_blank">
-                        <button class="project-button">
-                            Project's GitHub <i class="fa fa-github"></i>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="project-container">
-                <div class="info">
-                    <h4 class="project-header">SeisVis</h4>
-                    <h5 class="description-text">A cross-platform desktop application for analyzing seismic data, built with Electron.js and Python. It enables waveform plotting, seismic station aggregation, and earthquake catalog visualization while featuring session caching to save application state. The application uses Anaconda for Python data processing and will be packaged with PyInstaller for universal compatibility across Windows, macOS, and Linux systems.</h5>
-                </div>
-                <div class="project-image">
-                    <a href="https://github.com/Purdue-Stack/proj-seismic-data-visualization" target="_blank">
-                        <button class="project-button">
-                            Project's GitHub <i class="fa fa-github"></i>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="project-container">
-                <div class="info">
-                    <h4 class="project-header">Pokemon-VGC RL Agent</h4>
-                    <h5 class="description-text">Developing a Reinforcement Learning agent for competitive Pokémon VGC using PyTorch. The agent utilizes a deep neural network policy to learn optimal decision-making directly from battle data, focusing on mastering team composition, dynamic move selection, and in-game prediction to achieve a high win rate against standard baseline models.</h5>
-                </div>
-                <div class="project-image">
-                    <a href="https://github.com/akkshay0107/vgc-rl" target="_blank">
-                        <button class="project-button">
-                            Project's GitHub <i class="fa fa-github"></i>
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
-    );
+          </MotionArticle>
+        ))}
+      </div>
+    </Section>
+  );
 }
 
 export default Projects;

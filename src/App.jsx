@@ -1,71 +1,41 @@
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from 'framer-motion';
-import Home from "./components/home";
+import { useEffect } from "react";
+import Navbar from "./components/navbar";
+import Hero from "./components/hero";
+import Skills from "./components/skills";
+import Experience from "./components/experience";
 import Projects from "./components/projects";
-import Resume from "./components/resume";
-import NavBar from "./components/navbar";
+import FunFacts from "./components/facts";
 import Footer from "./components/footer";
 
-function AnimatedRoutes() {
-  const location = useLocation();
+function App() {
+  useEffect(() => {
+    const onMove = (event) => {
+      document.documentElement.style.setProperty("--mx", `${event.clientX}px`);
+      document.documentElement.style.setProperty("--my", `${event.clientY}px`);
+    };
+
+    window.addEventListener("pointermove", onMove, { passive: true });
+    return () => window.removeEventListener("pointermove", onMove);
+  }, []);
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route 
-          path="/" 
-          element={
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Home />
-            </motion.div>
-          } 
-        />
-        <Route 
-          path="/projects" 
-          element={
-            <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 100 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Projects />
-            </motion.div>
-          } 
-        />
-        <Route 
-          path="/resume" 
-          element={
-            <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 100 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Resume />
-            </motion.div>
-          } 
-        />
-      </Routes>
-    </AnimatePresence>
+    <div className="app-shell">
+      <div className="bg-grid" aria-hidden="true" />
+      <div className="bg-spotlight" aria-hidden="true" />
+      <a className="skip-link" href="#home">
+        Skip to content
+      </a>
+      <Navbar />
+      <main>
+        <Hero />
+        <Skills />
+        <Experience />
+        <Projects />
+        <FunFacts />
+      </main>
+      <Footer />
+    </div>
   );
 }
 
-function App() {
-  return (
-    <div id = "app-container">
-      <BrowserRouter>
-          <NavBar />
-          <AnimatedRoutes />
-          <Footer />
-      </BrowserRouter>
-    </div>
-  )
-}
-
-export default App
+export default App;
